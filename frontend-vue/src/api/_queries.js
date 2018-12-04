@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: ["error", { "allow": ["_currentUserQuery"] }] */
 import gql from 'graphql-tag';
 
 import {

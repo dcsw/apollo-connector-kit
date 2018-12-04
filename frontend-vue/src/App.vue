@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { Header, Footer } from '@/components/layout';
-import Layout from '@/components/Layout';
+import { Header, Footer } from './components/layout';
+import Layout from './components/Layout.vue';
 
 export default {
   name: 'app',
