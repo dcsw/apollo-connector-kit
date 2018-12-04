@@ -1,4 +1,4 @@
-import APP_SETTINGS from '$/settings/app.json'
+import APP_SETTINGS from '../settings/app.json'
 
 export const APP = APP_SETTINGS;
 

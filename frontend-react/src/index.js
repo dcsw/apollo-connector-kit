@@ -26,7 +26,7 @@ ReactDOM.render(
             <Route component={ErrorPage} />
           </Switch>
           <Alert stack={{ limit: 3 }} />
-          <div className="footer">made with 💜 remotely</div>
+          <div className="footer">made with <span role="img" aria-label="heart">💜</span> remotely</div>
 
           <style jsx global>{`
             *,

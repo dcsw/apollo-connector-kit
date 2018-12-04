@@ -10,7 +10,7 @@ const withLoginMutation = graphql(loginMutation);
 
 const recomposeStates = compose(
   withState('username', 'setUsername', ''),
-  withState('password', 'setPassword', ''),
+  withState('password', 'setPassword', '')
 );
 
 const recomposeHandlers = withHandlers({

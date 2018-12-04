@@ -12,7 +12,7 @@ const App = ({ match }) => (
     <Authenticate>
       <Home match={match} />
     </Authenticate>
-    <style jsx>{`
+    <style jsx="true">{`
       *,
       *::after,
       *::before {

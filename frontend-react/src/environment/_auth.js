@@ -1,4 +1,4 @@
-import APP from '$/settings/app.json'
+import APP from '../settings/app.json'
 
 const {
   NAMESPACE = '_',
