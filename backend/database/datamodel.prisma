@@ -1,0 +1,11 @@
+type User {
+  id: ID! @unique
+  name: String!
+}
+
+type Article {
+  id: ID! @unique
+  title: String!
+  category: String
+  url: String
+}

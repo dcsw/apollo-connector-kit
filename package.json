@@ -26,7 +26,9 @@
     "start-apollo-vue": "yarn run dev-apollo-vue",
     "start-apollo-react": "yarn run dev-apollo-react",
     "start": "yarn run dev",
-    "start-docker": "yarn run dev-docker"
+    "start-docker": "yarn run dev-docker",
+    "backend-refresh": "cd backend && yarn crud-refresh",
+    "backend-seed": "cd backend && yarn seed"
   },
   "dependencies": {
     "apollo-cache-inmemory": "1.3.0",

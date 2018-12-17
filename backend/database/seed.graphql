@@ -1,0 +1,34 @@
+mutation {
+  moo1: createArticle(data: {
+    title: "moo1 -- mooooooooooo"
+    category: "cow sounds"
+    url: "https://www.youtube.com/watch?v=ZdfHc0b7htY"
+  }) {
+    id
+    title
+    category
+    url
+  }
+
+  moo2: createArticle(data: {
+    title: "moo2 -- mooooooooooo"
+    category: "cow sounds"
+    url: "https://www.youtube.com/watch?v=hubCDqXiT2M"
+  }) {
+    id
+    title
+    category
+    url
+  }
+
+  moo3: createArticle(data: {
+    title: "moo3 -- multiple cow sounds -- moooooOOOOOOOOOOOOooooo...."
+    category: "cow sounds"
+    url: "https://www.youtube.com/watch?v=3UpYA_P5z18"
+  }) {
+    id
+    title
+    category
+    url
+  }
+}

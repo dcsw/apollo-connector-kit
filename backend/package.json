@@ -12,7 +12,9 @@
     "build": "babel -d ./build ./src -s",
     "serve-staging": "NODE_ENV=staging node ./server.js",
     "serve-production": "NODE_ENV=production node ./server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "refresh": "cd database && ../node_modules/.bin/prisma deploy",
+    "seed": "cd database && ../node_modules/.bin/prisma seed"
   },
   "author": "",
   "devDependencies": {
@@ -47,7 +49,9 @@
     "graphql-tools": "4.0.3",
     "jsonwebtoken": "8.1.1",
     "lodash.mapvalues": "4.6.0",
-    "merge-graphql-schemas": "^1.5.7"
+    "merge-graphql-schemas": "^1.5.7",
+    "prisma": "^1.22.1",
+    "prisma-client-lib": "^1.22.2"
   },
   "license": "MIT"
 }

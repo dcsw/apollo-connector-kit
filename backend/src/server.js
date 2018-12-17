@@ -24,7 +24,6 @@ app.get('/', (req, res) => {
   res.end(RESPONSE.MESSAGES.UP_RUNNING);
 });
 
-
 app.use(handleAuthentication);
 
 const server = new ApolloServer({

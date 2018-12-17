@@ -164,6 +164,30 @@ Otherwise the server/nodemon may not immediately pick up changes in components' 
 throw errors (for example adding/deleting components manually),
 
 
+
+
+
+## PRISMA SUPPORT
+Prisma support is available under backend/database.
+
+### Database Entities
+Add new or edit existing database entities in [backend/database/datamodel.prisma](backend/database/datamodel.prisma).
+
+Deploy new data models using:
+
+`yarn backend-refresh`
+
+### Seeding Database Records
+Add or edit database seeds to [backend/database/seed.graphql](backend/database/seed.graphql).
+
+Then create the seed records with:
+
+`yarn backend-seed`
+
+
+
+
+
 ## Additional:
 [Medium post](https://blog.mvp-space.com/authentication-and-authorization-boilerplate-with-apollo-2-0-b77042aba3f6)
 
