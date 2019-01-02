@@ -1,6 +1,6 @@
-import users from '~/connectors';
-import { encryptor } from '~/utils/';
-import { ERROR } from '~/environment';
+import users from '..//connectors';
+import { encryptor } from '../utils/';
+import { ERROR } from '../environment';
 
 export default {
   validate: async (username, password) => {
@@ -9,7 +9,7 @@ export default {
       : undefined;
     if (validUser) {
       const validPassword = await encryptor.verify({ digest: password }, validUser.password);
-      if (!validPassword) {
+     if (!validPassword) {
         throw new Error(ERROR.USER.WRONG_PASSWORD);
       }
       return validUser;
