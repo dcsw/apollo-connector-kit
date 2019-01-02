@@ -165,19 +165,17 @@ throw errors (for example adding/deleting components manually),
 
 
 
-
-
-## PRISMA SUPPORT
+# PRISMA SUPPORT
 Prisma support is available under backend/database.
 
-### Database Entities
+## Database Entities
 Add new or edit existing database entities in [backend/database/datamodel.prisma](backend/database/datamodel.prisma).
 
 Deploy new data models using:
 
 `yarn backend-refresh`
 
-### Seeding Database Records
+## Seeding Database Records
 Add or edit database seeds to [backend/database/seed.graphql](backend/database/seed.graphql).
 
 Then create the seed records with:
@@ -185,29 +183,69 @@ Then create the seed records with:
 `yarn backend-seed`
 
 
+# GraphQL Playground Authentication
+### Playground Setup
+To properly allow for HTTP Login from the playground <i>without using client-side localStorage</i>, go into the playground's settings and turn the "request.credentials" setting's value to "`include`" (from "`omit`"), and click the "`SAVE SETTINGS`" link.
+  ```javascript
+    {
+      //...
+      "request.credentials": "include",
+      //...
+    }
+  ```
+### Playground Login
+Then use the following mutation in the graphql playground to login:
+  ```javascript
+    mutation login { 
+      login(input: {username: "ric0", password: "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"})
+    }
+  ```
+This will yield a response like:
+  ```javascript
+    {
+      "data": {
+        "login": "{\"token\":\"[token-string]\",\"refreshToken\":\"[refresh-token-string]\"}"
+    }
+  ```
+Note that "`8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92`" is the client-side encrypted hash of the "`123456`" password.
 
-## GraphQL Playground login notes
-To make login queries work in the graphql playground (with these starter secrets):
-- use '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92' for the login query's password
+### Playground Authentication
+#### Headers Setup
+From this response, extract the token and refresh token values from the results above, insert them into the Cookie header (under "HTTP HEADERS" at the bottom of the playground), and add the x-connector-auth-request-type header with value HTTP_ONLY, as follows:
+  ```javascript
+    {
+      "x-connector-auth-request-type": "HTTP_ONLY",
+      "Cookie": "x-connector-token=[token-string]; x-connector-refresh-token=[refresh-token-string]"
+    }
+  ```
 
-  This is the client-side crypto-hashed  for the '123456' password.
+#### Authentication
+Now you can query for authorization using `"query checkAuth {  _checkAuth }"` to yield something like this:
+  ```javascript
+    {
+      "data": {
+        "_checkAuth": "Authorized | CurentUserId 1!"
+      }
+    }
+  ```
 
-- After that, to make _checkAuth and _currentUser work in the playground, set these headers:
+You can also get more detailed infromation on the current user using `"query me { _currentUser { id, name, username, email } }"` which yields something like:
+  ```javascript
+    {
+      "data": {
+        "_currentUser": {
+          "id": "1",
+          "name": "Enrico",
+          "username": "ric0",
+          "email": "admin@test.it"
+        }
+      }
+    }
+  ```
 
-  <code>
-  {
-    
-      "x-connector-auth-request-type": "LOCAL_STORAGE",
-
-      "x-connector-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InJpYzAiLCJlbWFpbCI6ImFkbWluQHRlc3QuaXQiLCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwicGVybWlzc2lvbnMiOlsicmVhZDpjb21tZW50cyIsInJlYWQ6cHJvZmlsZSIsInJlYWQ6Y29tbWVudHMiXX0sImlhdCI6MTU0NjQ0MjgxNSwiZXhwIjoxNTQ2NDQzMTc1fQ.EEcCsUnra9fhQ6C0x7G92y-iLTped6omk9DRZuiGApA",
-
-      "x-connector-refresh-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InJpYzAiLCJlbWFpbCI6ImFkbWluQHRlc3QuaXQiLCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwicGVybWlzc2lvbnMiOlsicmVhZDpjb21tZW50cyIsInJlYWQ6cHJvZmlsZSIsInJlYWQ6Y29tbWVudHMiXX0sImlhdCI6MTU0NjQ0MjgxNSwiZXhwIjoxNTQ3MDQ3NjE1fQ.-CvuWGYiam872qLZxDkREmvaGyufrKN37431Pj_6BAU"
-  }
-  </code>
 
 
-
-## Additional:
+# Additional:
 [Medium post](https://blog.mvp-space.com/authentication-and-authorization-boilerplate-with-apollo-2-0-b77042aba3f6)
 
 ## TODO:
