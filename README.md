@@ -164,7 +164,70 @@ Otherwise the server/nodemon may not immediately pick up changes in components' 
 throw errors (for example adding/deleting components manually),
 
 
-## Additional:
+
+# GraphQL Playground Authentication
+### Playground Setup
+To properly allow for HTTP Login from the playground <i>without using client-side localStorage</i>, go into the playground's settings and turn the "request.credentials" setting's value to "`include`" (from "`omit`"), and click the "`SAVE SETTINGS`" link.
+  ```javascript
+    {
+      //...
+      "request.credentials": "include",
+      //...
+    }
+  ```
+### Playground Login
+Then use the following mutation in the graphql playground to login:
+  ```javascript
+    mutation login { 
+      login(input: {username: "ric0", password: "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"})
+    }
+  ```
+This will yield a response like:
+  ```javascript
+    {
+      "data": {
+        "login": "{\"token\":\"[token-string]\",\"refreshToken\":\"[refresh-token-string]\"}"
+    }
+  ```
+Note that "`8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92`" is the client-side encrypted hash of the "`123456`" password.
+
+### Playground Authentication
+#### Headers Setup
+From this response, extract the token and refresh token values from the results above, insert them into the Cookie header (under "HTTP HEADERS" at the bottom of the playground), and add the x-connector-auth-request-type header with value HTTP_ONLY, as follows:
+  ```javascript
+    {
+      "x-connector-auth-request-type": "HTTP_ONLY",
+      "Cookie": "x-connector-token=[token-string]; x-connector-refresh-token=[refresh-token-string]"
+    }
+  ```
+
+#### Authentication
+Now you can query for authorization using `"query checkAuth {  _checkAuth }"` to yield something like this:
+  ```javascript
+    {
+      "data": {
+        "_checkAuth": "Authorized | CurentUserId 1!"
+      }
+    }
+  ```
+
+You can also get more detailed infromation on the current user using `"query me { _currentUser { id, name, username, email } }"` which yields something like:
+  ```javascript
+    {
+      "data": {
+        "_currentUser": {
+          "id": "1",
+          "name": "Enrico",
+          "username": "ric0",
+          "email": "admin@test.it"
+        }
+      }
+    }
+  ```
+
+
+
+# Additional:
 [Medium post](https://blog.mvp-space.com/authentication-and-authorization-boilerplate-with-apollo-2-0-b77042aba3f6)
 
 ## TODO:
