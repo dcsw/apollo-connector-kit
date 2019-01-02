@@ -1,6 +1,6 @@
-import { selectAuthStrategy } from '~/authentication';
-import { AUTH } from '~/config'
-import { setCookies, setHeaders, unsetCookies } from '~/authentication';
+import { selectAuthStrategy } from '../authentication';
+import { AUTH } from '../config'
+import { setCookies, setHeaders, unsetCookies } from '../authentication';
 
 // TODO: MOVE THEM TO ENUMS OR CONFIG
 const login = ['login', 'publicRegister'];

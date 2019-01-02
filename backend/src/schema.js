@@ -2,10 +2,10 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import OKGGraphQLScalars from '@okgrow/graphql-scalars'; // eslint-disable-line
 import mapValues from 'lodash.mapvalues';
-import components from '~/components';
+import components from './components';
 import QUERY_SETTINGS from '$/settings/queries.json';
-import { UNAUTHORIZED } from '~/environment';
-import { directives, attachDirectives } from '~/directives';
+import { UNAUTHORIZED } from './environment';
+import { directives, attachDirectives } from './directives';
 
 const { PRIVATE_PREFIX } = QUERY_SETTINGS;
 

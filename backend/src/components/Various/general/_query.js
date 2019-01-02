@@ -1,4 +1,4 @@
-import { isAdmin } from '~/directives';
+import { isAdmin } from '../../../directives';
 
 // right after cloning the repo
 // isAdmin ---> only user ric0 is allowed

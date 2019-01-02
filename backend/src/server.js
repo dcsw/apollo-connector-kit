@@ -2,17 +2,17 @@
 
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
-import { SERVER } from '~/config';
-import { schema } from '~/schema';
-import { handleAuthentication } from '~/authentication';
-import enableCors from '~/cors';
+import { SERVER } from './config';
+import { schema } from './schema';
+import { handleAuthentication } from './authentication';
+import enableCors from './cors';
 import {
   context as buildContext,
   formatResponse,
   formatError,
   formatParams,
-} from '~/graphql';
-import { startupMessages, RESPONSE } from '~/environment';
+} from './graphql';
+import { startupMessages, RESPONSE } from './environment';
 
 const app = express();
 
