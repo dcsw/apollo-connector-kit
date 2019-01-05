@@ -13,6 +13,7 @@
     "serve-staging": "NODE_ENV=staging node ./server.js",
     "serve-production": "NODE_ENV=production node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start-prisma": "cd database && docker-compose up -d",
     "refresh": "cd database && ../node_modules/.bin/prisma deploy",
     "seed": "cd database && ../node_modules/.bin/prisma seed"
   },
