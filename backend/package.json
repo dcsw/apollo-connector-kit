@@ -14,7 +14,10 @@
     "serve-production": "NODE_ENV=production node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-prisma": "cd database && docker-compose up -d",
+    "stop-prisma": "cd database && docker-compose down",
+    "generate": "cd database && ../node_modules/.bin/prisma generate",
     "refresh": "cd database && ../node_modules/.bin/prisma deploy",
+    "reset": "cd database && ../node_modules/.bin/prisma reset",
     "seed": "cd database && ../node_modules/.bin/prisma seed"
   },
   "author": "",
