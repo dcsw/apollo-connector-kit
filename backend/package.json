@@ -17,7 +17,7 @@
     "stop-prisma": "cd database && docker-compose down",
     "generate": "cd database && ../node_modules/.bin/prisma generate",
     "refresh": "cd database && ../node_modules/.bin/prisma deploy",
-    "reset": "cd database && ../node_modules/.bin/prisma reset",
+    "reset": "cd database && ../node_modules/.bin/prisma reset -f",
     "seed": "cd database && ../node_modules/.bin/prisma seed"
   },
   "author": "",
