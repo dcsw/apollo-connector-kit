@@ -1,6 +1,8 @@
 type User {
   id: ID! @unique
   name: String!
+  username: String
+  email: String
 }
 
 type Article {
