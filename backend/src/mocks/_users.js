@@ -16,10 +16,10 @@ export const mockUsers = [
     // * use 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92 as 123456 client-side crypto-hashed in graphql plaground
     // After that, to make _checkAuth and _currentUser work, use these headers:
     // { 
-    //   "x-connector-auth-request-type": "LOCAL_STORAGE",
-    //   "x-connector-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InJpYzAiLCJlbWFpbCI6ImFkbWluQHRlc3QuaXQiLCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwicGVybWlzc2lvbnMiOlsicmVhZDpjb21tZW50cyIsInJlYWQ6cHJvZmlsZSIsInJlYWQ6Y29tbWVudHMiXX0sImlhdCI6MTU0NjQ0MjgxNSwiZXhwIjoxNTQ2NDQzMTc1fQ.EEcCsUnra9fhQ6C0x7G92y-iLTped6omk9DRZuiGApA",
-    //   "x-connector-refresh-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InJpYzAiLCJlbWFpbCI6ImFkbWluQHRlc3QuaXQiLCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwicGVybWlzc2lvbnMiOlsicmVhZDpjb21tZW50cyIsInJlYWQ6cHJvZmlsZSIsInJlYWQ6Y29tbWVudHMiXX0sImlhdCI6MTU0NjQ0MjgxNSwiZXhwIjoxNTQ3MDQ3NjE1fQ.-CvuWGYiam872qLZxDkREmvaGyufrKN37431Pj_6BAU"
+    //   "x-connector-auth-request-type": "HTTP_ONLY",
+    //   "Cookie": "x-connector-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InJpYzAiLCJlbWFpbCI6ImFkbWluQHRlc3QuaXQiLCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwicGVybWlzc2lvbnMiOlsicmVhZDpjb21tZW50cyIsInJlYWQ6cHJvZmlsZSIsInJlYWQ6Y29tbWVudHMiXX0sImlhdCI6MTU0NjQ1MTI1NCwiZXhwIjoxNTQ2NDUxNjE0fQ.KgwJpWSyOwjbABG1dR1mcojHGV1DzVnYY4b4yrhVbJw; x-connector-refresh-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InJpYzAiLCJlbWFpbCI6ImFkbWluQHRlc3QuaXQiLCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwicGVybWlzc2lvbnMiOlsicmVhZDpjb21tZW50cyIsInJlYWQ6cHJvZmlsZSIsInJlYWQ6Y29tbWVudHMiXX0sImlhdCI6MTU0NjQ1MTI1NCwiZXhwIjoxNTQ3MDU2MDU0fQ.kN9XRGNv-dnd8KQC_OjsJhb3W1qtJMjbiyebTyUtjtM"
     // }
+
     roles: [
       ROLES_PERMISSIONS.ADMIN.NAME,
       ROLES_PERMISSIONS.USER.NAME,
