@@ -30,6 +30,7 @@
     "backend-start-prisma": "cd backend && yarn start-prisma",
     "backend-stop-prisma": "cd backend && yarn stop-prisma",
     "backend-generate": "cd backend && yarn generate",
+    "backend-deploy": "cd backend && yarn deploy",
     "backend-refresh": "cd backend && yarn refresh",
     "backend-reset": "cd backend && yarn reset",
     "backend-seed": "cd backend && yarn seed"

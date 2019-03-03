@@ -1,34 +1,64 @@
 mutation {
+  user_Enrico: createUser(data: {
+    name: "Enrico",
+    username: "ric0",
+    email: "admin@test.it"
+    password: "$2a$12$1e616OUCfSM7Wd3VOvbZve.4DtCrRDPrAZcKvIo3.lDUHm3kiXhna", # this is === 123456 client-side crypto-hashed
+    # roles: [
+    #   ROLES_PERMISSIONS.ADMIN.NAME,
+    #   ROLES_PERMISSIONS.USER.NAME,
+    # ],
+    roles: { set: [ "ADMIN" "USER" ] },
+    # permissions: [
+    #   ...ROLES_PERMISSIONS.ADMIN.PERMISSIONS[SCOPES.OPERATION.READ].map(permission =>
+    #    `${SCOPES.OPERATION.READ}:${permission}`),
+    #   ...ROLES_PERMISSIONS.USER.PERMISSIONS[SCOPES.OPERATION.READ].map(permission => `${SCOPES.OPERATION.READ}:${permission}`),
+    # ]
+    permissions: { set: [ "read:comments" "read:profile" ] }
+  }) { id, name, username, email }
+
+  user_kris: createUser(data: {
+    name: "Kris",
+    username: "kris",
+    email: "test@test.it"
+    password: "$2a$12$1e616OUCfSM7Wd3VOvbZve.4DtCrRDPrAZcKvIo3.lDUHm3kiXhna",
+    roles: { set: [ "USER" ] },
+    # permissions: [
+    #   ...ROLES_PERMISSIONS.USER.PERMISSIONS[SCOPES.OPERATION.READ].map(permission =>
+    #     `${SCOPES.OPERATION.READ}:${permission}`),
+    # ]
+    permissions: { set: [ "read:comments" ] }
+  }) { id, name, username, email }
+
+
+  user_bingo: createUser(data: {
+    name: "Bingo",
+    username: "bingo",
+    email: "bingo@test.it"
+    password: "b3ef4a9facbc08772bf74d96dae7236fac04ee9d37c01159a21efb42e213972b",
+    roles: { set: [ "USER" ] },
+    # permissions: [
+    #   ...ROLES_PERMISSIONS.USER.PERMISSIONS[SCOPES.OPERATION.READ].map(permission =>
+    #     `${SCOPES.OPERATION.READ}:${permission}`),
+    # ]
+    permissions: { set: [ "read:comments" ] }
+  }) { id, name, username, email }
+
   moo1: createArticle(data: {
     title: "moo1 -- mooooooooooo"
     category: "cow sounds"
     url: "https://www.youtube.com/watch?v=ZdfHc0b7htY"
-  }) {
-    id
-    title
-    category
-    url
-  }
+  }) { id title category url }
 
   moo2: createArticle(data: {
     title: "moo2 -- mooooooooooo"
     category: "cow sounds"
     url: "https://www.youtube.com/watch?v=hubCDqXiT2M"
-  }) {
-    id
-    title
-    category
-    url
-  }
+  }) { id title category url }
 
   moo3: createArticle(data: {
     title: "moo3 -- multiple cow sounds -- moooooOOOOOOOOOOOOooooo...."
     category: "cow sounds"
     url: "https://www.youtube.com/watch?v=3UpYA_P5z18"
-  }) {
-    id
-    title
-    category
-    url
-  }
+  }) { id title category url }
 }

@@ -3,6 +3,9 @@ type User {
   name: String!
   username: String
   email: String
+  password: String
+  roles: [String!]!
+  permissions: [String!]!
 }
 
 type Article {
