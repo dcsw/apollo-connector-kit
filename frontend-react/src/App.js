@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import { Home } from './components'
+import { Admin } from './components';
 import { Authenticate } from './components/general'
 import { storeQuery } from './api'
 
@@ -10,8 +11,9 @@ const withStoreQuery = graphql(storeQuery);
 const App = ({ match }) => (
   <div className="main">
     <Authenticate>
-      <Home match={match} />
+      <Admin match={match} />
     </Authenticate>
+    <Home match={match} />
     <style jsx="true">{`
       *,
       *::after,
