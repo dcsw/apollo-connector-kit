@@ -22,6 +22,6 @@ export const queryResolvers = {
   Query: {
     test: () => 'Server is up and running... working smoothly',
     connection: () => 'Connected',
-    _checkAuth: (_, args, context) => `Authorized | CurentUserId ${context.user.id}!`,
+    _checkAuth: (_, args, context) => `Authorized | CurrentUserId ${context.user.id}!`,
   },
 };
