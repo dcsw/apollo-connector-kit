@@ -224,7 +224,7 @@ Now you can query for authorization using `"query checkAuth {  _checkAuth }"` to
   ```javascript
     {
       "data": {
-        "_checkAuth": "Authorized | CurentUserId 1!"
+        "_checkAuth": "Authorized CurrentUserId 1!"
       }
     }
   ```
@@ -243,6 +243,16 @@ You can also get more detailed infromation on the current user using `"query me 
     }
   ```
 
+
+#### Administrator
+Now you can query for whether the current user is an Administrator using `"query checkAdmin {  _checkAdmin }"` to yield something like this:
+  ```javascript
+    {
+      "data": {
+        "_checkAdmin": "Authorized CurrentAdminUserId 1!"
+      }
+    }
+  ```
 
 
 # Additional:

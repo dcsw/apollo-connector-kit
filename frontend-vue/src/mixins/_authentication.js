@@ -1,4 +1,4 @@
-import { _checkAuthQuery } from '@/api';
+import { _checkAuthQuery, _checkAdminQuery } from '../api';
 
 export default {
   data() {
@@ -12,6 +12,13 @@ export default {
       fetchPolicy: 'network-only',
       update({ _checkAuth }) {
         return typeof _checkAuth === 'string';
+      },
+    },
+    admin: {
+      query: _checkAdminQuery,
+      fetchPolicy: 'network-only',
+      update({ _checkAdmin }) {
+        return typeof _checkAdmin === 'string';
       },
     },
   },

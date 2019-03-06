@@ -22,3 +22,9 @@ export const authQuery = gql`
     _checkAuth
   }
 `;
+
+export const adminQuery = gql`
+  query _checkAdmin {
+    _checkAdmin
+  }
+`;

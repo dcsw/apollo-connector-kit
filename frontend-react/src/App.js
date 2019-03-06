@@ -1,19 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'react-apollo'
-import { Home } from './components'
-import { Admin } from './components';
-import { Authenticate } from './components/general'
-import { storeQuery } from './api'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "react-apollo";
+import { Home } from "./components";
+import { AdminPage } from "./components";
+import { Authenticate, AdminBoundary } from "./components/general";
+import { storeQuery } from "./api";
 
 const withStoreQuery = graphql(storeQuery);
 
 const App = ({ match }) => (
   <div className="main">
+    <AdminBoundary>
+      I am an admin!
+    </AdminBoundary>
     <Authenticate>
-      <Admin match={match} />
+      <Home match={match} />
     </Authenticate>
-    <Home match={match} />
     <style jsx="true">{`
       *,
       *::after,
@@ -39,8 +41,7 @@ const App = ({ match }) => (
   </div>
 );
 App.propTypes = {
-  match: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  match: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
-
 
 export default withStoreQuery(App);

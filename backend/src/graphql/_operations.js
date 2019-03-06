@@ -4,5 +4,8 @@ export const whitelistedOperations = [
   }`,
   `query auth {
     _checkAuth
+  }`,,
+  `query admin {
+    _checkAdmin
   }`,
 ];
