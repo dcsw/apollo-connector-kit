@@ -6,13 +6,20 @@
   "scripts": {
     "start": "bash start.sh",
     "start-docker": "bash start-docker.sh",
-    "launch": "nodemon ./src/server.js --exec babel-node -e js",
+    "launch": "nodemon --inspect ./src/server.js --exec babel-node -e js",
     "add-component-part": "cd ./src/scripts && bash create-graphql-component.sh",
     "remove-component-part": "cd ./src/scripts && bash delete-graphql-component.sh",
     "build": "babel -d ./build ./src -s",
     "serve-staging": "NODE_ENV=staging node ./server.js",
     "serve-production": "NODE_ENV=production node ./server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-prisma": "cd database && docker-compose up -d",
+    "stop-prisma": "cd database && docker-compose down",
+    "generate": "cd database && ../node_modules/.bin/prisma generate",
+    "deploy": "cd database && ../node_modules/.bin/prisma deploy",
+    "refresh": "yarn deploy",
+    "reset": "cd database && ../node_modules/.bin/prisma reset -f",
+    "seed": "cd database && ../node_modules/.bin/prisma seed"
   },
   "author": "",
   "devDependencies": {
@@ -43,11 +50,13 @@
     "cors": "2.8.4",
     "eslint-plugin-graphql": "^2.1.1",
     "express": "4.16.2",
-    "graphql": "^0.13.0",
-    "graphql-tools": "4.0.3",
+    "graphql": "14.0.2",
+    "graphql-tools": "^4.0.4",
     "jsonwebtoken": "8.1.1",
     "lodash.mapvalues": "4.6.0",
-    "merge-graphql-schemas": "^1.5.7"
+    "merge-graphql-schemas": "^1.5.7",
+    "prisma": "^1.22.1",
+    "prisma-client-lib": "^1.22.2"
   },
   "license": "MIT"
 }

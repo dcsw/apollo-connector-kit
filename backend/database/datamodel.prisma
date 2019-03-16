@@ -1,0 +1,16 @@
+type User {
+  id: ID! @unique
+  name: String!
+  username: String
+  email: String
+  password: String
+  roles: [String!]!
+  permissions: [String!]!
+}
+
+type Article {
+  id: ID! @unique
+  title: String!
+  category: String
+  url: String
+}

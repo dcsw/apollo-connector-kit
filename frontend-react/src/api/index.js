@@ -2,6 +2,7 @@ export {
   connectionQuery,
   storeQuery,
   authQuery,
+  adminQuery,
 } from './_queries';
 
 export {

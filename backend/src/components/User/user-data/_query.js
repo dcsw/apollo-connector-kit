@@ -1,18 +1,16 @@
-import { mockUsers } from '../../../mocks';
 import { canReadProfile } from '../../../directives';
+import { prisma } from '../../../../database/generated/prisma-client';
 
 export const queryTypes = `
   type Query {
-    _currentUser: User  @${canReadProfile}
+    _currentUser: User @${canReadProfile}
   }`;
 
 export const queryResolvers = {
   Query: {
-    _currentUser: (_, args, context) => {
-      const users = mockUsers;
-      const user = users.filter(u => u.id === context.user.id).length > 0
-        ? users.filter(u => u.id === context.user.id)[0]
-        : undefined;
+    _currentUser: async (_, args, context) => {
+      const users = await prisma.users({ where: { id: context.user.id }});
+      const user = users.length ? users[0] : null;
       return user;
     },
   },

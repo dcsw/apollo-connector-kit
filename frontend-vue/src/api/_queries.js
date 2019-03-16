@@ -12,6 +12,13 @@ export const _checkAuthQuery = gql`
   }
 `;
 
+// eslint-disable-next-line
+export const _checkAdminQuery = gql`
+  query auth {
+    _checkAdmin
+  }
+`;
+
 export const connectionQuery = gql`
   query connection {
     connection

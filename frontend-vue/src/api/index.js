@@ -4,6 +4,7 @@ export {
 
 export {
   _checkAuthQuery,
+  _checkAdminQuery,
   connectionQuery,
 } from './_queries';
 export {

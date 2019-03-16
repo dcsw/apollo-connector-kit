@@ -165,6 +165,24 @@ throw errors (for example adding/deleting components manually),
 
 
 
+# PRISMA SUPPORT
+Prisma support is available under backend/database.
+
+## Database Entities
+Add new or edit existing database entities in [backend/database/datamodel.prisma](backend/database/datamodel.prisma).
+
+Deploy new data models using:
+
+`yarn backend-refresh`
+
+## Seeding Database Records
+Add or edit database seeds to [backend/database/seed.graphql](backend/database/seed.graphql).
+
+Then create the seed records with:
+
+`yarn backend-seed`
+
+
 # GraphQL Playground Authentication
 ### Playground Setup
 To properly allow for HTTP Login from the playground <i>without using client-side localStorage</i>, go into the playground's settings and turn the "request.credentials" setting's value to "`include`" (from "`omit`"), and click the "`SAVE SETTINGS`" link.
@@ -206,7 +224,7 @@ Now you can query for authorization using `"query checkAuth {  _checkAuth }"` to
   ```javascript
     {
       "data": {
-        "_checkAuth": "Authorized | CurentUserId 1!"
+        "_checkAuth": "Authorized CurrentUserId 1!"
       }
     }
   ```
@@ -225,6 +243,16 @@ You can also get more detailed infromation on the current user using `"query me 
     }
   ```
 
+
+#### Administrator
+Now you can query for whether the current user is an Administrator using `"query checkAdmin {  _checkAdmin }"` to yield something like this:
+  ```javascript
+    {
+      "data": {
+        "_checkAdmin": "Authorized CurrentAdminUserId 1!"
+      }
+    }
+  ```
 
 
 # Additional:

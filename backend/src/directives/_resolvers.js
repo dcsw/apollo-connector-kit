@@ -1,5 +1,5 @@
 import { ForbiddenError } from 'apollo-server-express';
-import { FORBIDDEN } from '~/environment';
+import { FORBIDDEN } from '../environment';
 import { DIRECTIVES } from './_directives';
 
 export const directiveResolvers = {

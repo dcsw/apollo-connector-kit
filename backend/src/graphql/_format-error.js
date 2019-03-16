@@ -1,4 +1,4 @@
-import { FORBIDDEN, UNAUTHORIZED, ERROR } from '~/environment';
+import { FORBIDDEN, UNAUTHORIZED, ERROR } from '../environment';
 
 const e401s = [
   ERROR.USER.WRONG_CREDENTIALS,

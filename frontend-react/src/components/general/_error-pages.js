@@ -1,24 +1,24 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { pure } from 'recompose'
-import { Link } from 'react-router-dom'
+import React from "react";
+import PropTypes from "prop-types";
+import { pure } from "recompose";
+import { Link } from "react-router-dom";
 
 const errorPage = code => {
   const errorCode = code.substr(0, 3);
   const errorFamily = code.substr(0, 2);
   const errorObj = {
     statusCode: errorCode,
-    content: 'Something went wrong',
+    content: "Something went wrong"
   };
   switch (errorFamily) {
-    case '40':
-      if (errorCode === '403') {
+    case "40":
+      if (errorCode === "403") {
         errorObj.content = `The requested resource is Forbidden`;
       } else {
         errorObj.content = `The requested resource could not be found but may be available again in the future.`;
       }
       break;
-    case '50':
+    case "50":
       errorObj.content = `An unexpected condition was encountered. Our service team has been dispatched to bring it back online.`;
       break;
     default:
@@ -27,7 +27,11 @@ const errorPage = code => {
   return errorObj;
 };
 
-const Page = ({ match: { params: { error = '404' } } }) => {
+const Page = ({
+  match: {
+    params: { error = "404" }
+  }
+}) => {
   const { statusCode, content } = errorPage(error);
   return (
     <div className="cover">
@@ -38,6 +42,9 @@ const Page = ({ match: { params: { error = '404' } } }) => {
       <p>
         <Link href="/" to="/">
           Home
+        </Link>
+        <Link href="/" to="/login">
+          Login Screen
         </Link>
       </p>
       <style jsx>{`
@@ -62,17 +69,17 @@ const Page = ({ match: { params: { error = '404' } } }) => {
 Page.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      error: PropTypes.string,
-    }),
-  }),
+      error: PropTypes.string
+    })
+  })
 };
 
 Page.defaultProps = {
   match: {
     params: {
-      error: '404',
-    },
-  },
+      error: "404"
+    }
+  }
 };
 
 export default pure(Page);
