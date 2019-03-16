@@ -1,0 +1,26 @@
+{
+  "name": "my-uizoo-app",
+  "version": "1.0.0",
+  "description": "UiZoo - Dynamic React components library",
+  "repository": {
+    "url": "https://github.com/myheritage/UiZoo.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "uizoo": "~1.3.0",
+    "webpack": "~4.29.6",
+    "webpack-dev-server": "~3.2.1",
+    "babel-loader": "~8.0.5",
+    "babel-preset-env": "~1.7.0",
+    "babel-preset-react": "~6.24.1",
+    "babel-plugin-transform-object-rest-spread": "~6.26.0",
+    "babel-plugin-syntax-dynamic-import": "~6.18.0",
+    "babel-plugin-transform-flow-strip-types": "~6.22.0",
+    "style-loader": "~0.23.1",
+    "css-loader": "~2.1.1",
+    "uizoo-app": "~0.1.0"
+  },
+  "scripts": {
+    "uizoo": "node .uizoo-app/webpack.uizoo.js"
+  }
+}
