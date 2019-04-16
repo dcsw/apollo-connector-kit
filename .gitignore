@@ -5,3 +5,4 @@
 ToDo.txt
 yarn-error.log
 backend/database/generated
+*/node_modules
