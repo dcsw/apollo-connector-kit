@@ -29,11 +29,13 @@
     "start-docker": "yarn run dev-docker",
     "backend-start-prisma": "cd backend && yarn start-prisma",
     "backend-stop-prisma": "cd backend && yarn stop-prisma",
+    "backend-nuke-data": "cd backend && yarn nuke-data",
     "backend-generate": "cd backend && yarn generate",
     "backend-deploy": "cd backend && yarn deploy",
     "backend-refresh": "cd backend && yarn refresh",
     "backend-reset": "cd backend && yarn reset",
-    "backend-seed": "cd backend && yarn seed"
+    "backend-seed": "cd backend && yarn seed",
+    "backend-cycle": "yarn backend-stop-prisma  && yarn backend-nuke-data  && yarn backend-start-prisma  && yarn backend-deploy "
   },
   "dependencies": {
     "apollo-cache-inmemory": "1.3.0",

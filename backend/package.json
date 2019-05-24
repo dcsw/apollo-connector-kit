@@ -17,6 +17,7 @@
     "stop-prisma": "cd database && docker-compose down",
     "generate": "cd database && ../node_modules/.bin/prisma generate",
     "deploy": "cd database && ../node_modules/.bin/prisma deploy",
+    "nuke-data": "cd database && docker volume rm database_postgres",
     "refresh": "yarn deploy",
     "reset": "cd database && ../node_modules/.bin/prisma reset -f",
     "seed": "cd database && ../node_modules/.bin/prisma seed"
